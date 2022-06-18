@@ -29,9 +29,9 @@ public class AppInitializer {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        //default fetching - lazy fetching
+        //1st methodology for fetching data from the table
         Owner o001 = session.get(Owner.class, "O001");
-        System.out.println(o001);
+        System.out.println(o001.getOId());
 
         transaction.commit();
         session.close();

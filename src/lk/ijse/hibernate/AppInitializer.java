@@ -30,8 +30,12 @@ public class AppInitializer {
         Transaction transaction = session.beginTransaction();
 
         //1st methodology for fetching data from the table
-        Owner o001 = session.get(Owner.class, "O001");
-        System.out.println(o001.getOId());
+//        Owner o001 = session.get(Owner.class, "O001");
+//        System.out.println(o001.getName());
+
+        //2 nd methodology for fetching data from the table
+        Owner o001 = session.load(Owner.class,"O001");
+        System.out.println(o001.getPetList());
 
         transaction.commit();
         session.close();

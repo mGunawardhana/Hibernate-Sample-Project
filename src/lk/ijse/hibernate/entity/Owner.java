@@ -31,7 +31,7 @@ public class Owner {
     private String name;
 
     //changing to EAGER type
-    @OneToMany(mappedBy = "owner",fetch = FetchType.EAGER )
+    @OneToMany(mappedBy = "owner",fetch = FetchType.LAZY )
     private List<Pet> petList = new ArrayList<Pet>();
 
 }

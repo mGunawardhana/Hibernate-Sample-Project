@@ -1,10 +1,12 @@
 package lk.ijse.hibernate;
 
 import lk.ijse.hibernate.entity.Owner;
-import lk.ijse.hibernate.entity.Pet;
 import lk.ijse.hibernate.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 
 public class AppInitializer {
@@ -34,11 +36,15 @@ public class AppInitializer {
 //        System.out.println(o001.getName());
 
         //2 nd methodology for fetching data from the table
-//        Owner o001 = session.load(Owner.class,"O001");
-//        System.out.println(o001.getPetList());
+//        Owner o001 = session.get(Owner.class,"002");
+//        System.out.println(o001.getOId());
 
-        Pet pet = session.load(Pet.class,"P001");
-        System.out.println(pet.getOwner());
+        // --------------- In HQL -------------------------
+        Query query = session.createQuery("FROM Owner");
+        List<Owner> ownerList = query.list();
+
+        System.out.println(ownerList);
+
 
         transaction.commit();
         session.close();

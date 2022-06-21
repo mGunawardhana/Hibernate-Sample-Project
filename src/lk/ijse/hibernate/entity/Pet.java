@@ -19,7 +19,7 @@ import javax.persistence.ManyToOne;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@ToString
 @Entity
 public class Pet {
     @Id

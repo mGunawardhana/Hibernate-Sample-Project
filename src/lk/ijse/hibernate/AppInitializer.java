@@ -40,10 +40,23 @@ public class AppInitializer {
 //        System.out.println(o001.getOId());
 
         // --------------- In HQL -------------------------
-        Query query = session.createQuery("FROM Owner");
-        List<Owner> ownerList = query.list();
+//        Query query = session.createQuery("FROM Owner");
+//        List<Owner> ownerList = query.list();
+//
+//        for (Owner owner: ownerList) {
+//            System.out.println(owner.getOId() + " : " + owner.getName() + " : " +
+//                    owner.getPetList());
+//        }
 
-        System.out.println(ownerList);
+        //Where clause
+        List<Owner> ownerList =
+                session.createQuery("FROM Owner WHERE name LIKE 'D%'").list();
+
+        for (Owner owner: ownerList) {
+            System.out.println(owner.getOId() + " : " + owner.getName() + " : " +
+                    owner.getPetList());
+        }
+
 
 
         transaction.commit();
